@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Main Content -->
+    <div class="main-layout">
+      <div class="name-container">
+        <h1 class="name">Meme<span class="name-2">Star</span></h1>
+        <h3 class="instruction">Fill out the form to start creating memes!</h3>
+      </div>
+      <div class="content-wrapper">
+        <form id="meme-form">
+          <div>
+            <label for="image-url" class="form-label">Image URL:</label>
+            <input
+              type="url"
+              id="image-url"
+              class="form-control"
+              name="image-url"
+              required
+              data-error="A valid image URL is required."
+            />
+          </div>
+          <div>
+            <label for="top-text" class="form-label">Top Text:</label>
+            <input
+              type="text"
+              id="top-text"
+              class="form-control"
+              name="top-text"
+              required
+              data-error="Please enter top text"
+            />
+          </div>
+          <div>
+            <label for="bottom-text" class="form-label">Bottom Text:</label>
+            <input
+              type="text"
+              id="bottom-text"
+              class="form-control"
+              name="bottom-text"
+              required
+              data-error="Please enter bottom text"
+            />
+          </div>
+          <button type="submit">Create!</button>
+          <div id="form-errors" class="form-error-message"></div>
+        </form>
+        <div id="image-preview-wrapper" class="preview-column">
+          <label for="preview" class="preview-label">Meme Preview</label>
+          <div id="image-preview-container">
+            <div id="meme-container">
+              <img id="image-preview" src=".." alt="Meme Preview" />
+              <div id="meme-top-text" class="meme-text top">Top Text</div>
+              <div id="meme-bottom-text" class="meme-text bottom">
+                Bottom Text
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Content -->
+    <section class="gallery-section">
+      <label for="preview" class="gallery-label">Gallery</label>
+      <div id="meme-gallery" class="meme-gallery"></div>
+    </section>
+  </body>
+</html>
