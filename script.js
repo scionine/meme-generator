@@ -12,6 +12,20 @@ imagePreview.style.display = "none";
 previewTopText.style.opacity = "0";
 previewBottomText.style.opacity = "0";
 
+// Function to auto-fit text inside its container
+function autoFitText(element, maxFontSize = 24, minFontSize = 8) {
+  const parent = element.parentElement;
+  element.style.fontSize = `${maxFontSize}px`;
+
+  while (
+    (element.scrollHeight > parent.clientHeight / 2 ||
+      element.scrollWidth > parent.clientWidth) &&
+    parseFloat(element.style.fontSize) > minFontSize
+  ) {
+    element.style.fontSize = `${parseFloat(element.style.fontSize) - 1}px`;
+  }
+}
+
 // Live update for image preview
 document.querySelector("#image-url").addEventListener("input", (e) => {
   const url = e.target.value.trim();
@@ -24,19 +38,22 @@ document.querySelector("#image-url").addEventListener("input", (e) => {
   }
 });
 
-// Live update for top and bottom text with show/hide
+// Live update for top and bottom text with show/hide and scaling
 document.querySelector("#top-text").addEventListener("input", (e) => {
   const value = e.target.value.trim();
   previewTopText.textContent = value;
   previewTopText.style.opacity = value ? "1" : "0";
+  autoFitText(previewTopText);
 });
 
 document.querySelector("#bottom-text").addEventListener("input", (e) => {
   const value = e.target.value.trim();
   previewBottomText.textContent = value;
   previewBottomText.style.opacity = value ? "1" : "0";
+  autoFitText(previewBottomText);
 });
 
+// Handle form submission
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   errorBox.innerHTML = "";
@@ -80,6 +97,12 @@ form.addEventListener("submit", function (e) {
 
     // Append meme to gallery
     memeGallery.appendChild(meme);
+
+    // Auto-fit text on the final meme
+    const newTop = meme.querySelector(".meme-text.top");
+    const newBottom = meme.querySelector(".meme-text.bottom");
+    autoFitText(newTop);
+    autoFitText(newBottom);
 
     // Reset form and preview
     form.reset();
