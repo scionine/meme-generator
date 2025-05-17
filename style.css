@@ -310,6 +310,30 @@ button:focus {
   background: rgba(255, 0, 0, 0.85);
 }
 
+.attribution {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  color: rgb(143, 143, 143);
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+  left: -0.3px;
+}
+
+.attribution a {
+  color: #fc427b;
+}
+
+.attribution a:hover,
+.attribution a:focus {
+  text-decoration: underline;
+  color: #25ccf7;
+}
+
 @media (max-width: 900px) {
   html,
   body {
