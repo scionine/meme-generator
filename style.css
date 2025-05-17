@@ -260,7 +260,6 @@ input:required {
   padding: 20px;
   margin: 0 10px 10px;
   background: #f1f1f1;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   object-fit: contain;
   overflow-y: auto;
