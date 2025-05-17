@@ -146,8 +146,9 @@ input:required {
   border: 2px solid #25ccf7;
   padding: 20px;
   width: 100%;
-  min-height: 300px;
   max-height: 300px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
 }
@@ -197,10 +198,11 @@ input:required {
 
 .meme-text {
   position: absolute;
+  max-width: 100%;
   width: 100%;
   padding: 0 10px;
   color: white;
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(0.6rem, 2vw, 1.2rem);
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px 4px black;
@@ -208,6 +210,8 @@ input:required {
   pointer-events: none;
   white-space: normal;
   word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
 .meme-text.top {
